@@ -11,6 +11,28 @@ Que es PesetaCoin?
 ----------------
 TODO: Poner informacion de PesetaCoin.info
 
+
+
+
+Compilación sin entorno gráfico:
+----------------------------------
+
+Ejecutar:
+
+	cd src
+	make -f makefile.unix (makefile.osx para mac o makefile.mingw para windows)
+
+
+Compilación con entorno gráfico:
+----------------------------------
+
+ejecutar:
+ 
+	qmake-qt4 -makefile -Wall USE_QRCODE=1
+	make 
+
+
+
 License
 -------
 
