@@ -1,0 +1,14 @@
+bool IsInitialBlockDownload()
+{
+    if (pindexBest == NULL || nBestHeight < Checkpoints::GetTotalBlocksEstimate())
+        return true;
+    static int64 nLastUpdate;
+    static CBlockIndex* pindexLastBest;
+    if (pindexBest != pindexLastBest)
+    {
+        pindexLastBest = pindexBest;
+        nLastUpdate = GetTime();
+    }
+    return (GetTime() - nLastUpdate < 10 &&
+            pindexBest->GetBlockTime() < GetTime() - 24 * 60 * 60);
+}
