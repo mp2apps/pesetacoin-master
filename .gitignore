@@ -1,0 +1,32 @@
+src/*.exe
+src/pelacoin
+src/pelacoind
+src/test_pelacoin
+.*.swp
+*.*~*
+*.bak
+*.rej
+*.orig
+*.o
+*.patch
+.pesetacoin
+*~
+# Compilation and Qt preprocessor part
+*.qm
+pesetacoin-qt
+pesetacoin-qt.app
+
+# Unit-tests
+Makefile.test
+pesetacoin-qt_test
+
+# Resources cpp
+qrc_*.cpp
+
+# Qt creator
+*.pro.user
+
+# Mac specific
+.DS_Store
+build
+
