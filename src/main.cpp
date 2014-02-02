@@ -2019,7 +2019,12 @@ bool CBlockHeader::CheckProofOfWork(int nHeight) const
         
         //rampa -- Uncommented by CryptoMP (security flaw). Thanks UnitedScryptCoin.
         
-        if (!fTestNet && nHeight != INT_MAX && GetChainID() != GetOurChainID())
+        //start at 32086
+        
+        //if (!fTestNet && nHeight != INT_MAX && GetChainID() != GetOurChainID())
+        //    return error("CheckProofOfWork() : block does not have our chain ID (%x)",GetChainID());
+
+        if (!fTestNet && nHeight != INT_MAX && nHeight > 32900 && GetChainID() != GetOurChainID())
             return error("CheckProofOfWork() : block does not have our chain ID (%x)",GetChainID());
         
         

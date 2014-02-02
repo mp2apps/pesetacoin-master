@@ -1,7 +1,7 @@
 src/*.exe
-src/pelacoin
-src/pelacoind
-src/test_pelacoin
+src/pesetacoin
+src/pesetacoind
+src/test_pesetacoin
 .*.swp
 *.*~*
 *.bak
