@@ -2017,11 +2017,11 @@ bool CBlockHeader::CheckProofOfWork(int nHeight) const
         // - parent block must not have the same chain ID (see CAuxPow::Check)
         // - index of this chain in chain merkle tree must be pre-determined (see CAuxPow::Check)
         
-        //rampa
-        /*
+        //rampa -- Uncommented by CryptoMP (security flaw). Thanks UnitedScryptCoin.
+        
         if (!fTestNet && nHeight != INT_MAX && GetChainID() != GetOurChainID())
             return error("CheckProofOfWork() : block does not have our chain ID (%x)",GetChainID());
-        */
+        
         
         if (auxpow.get() != NULL)
         {
