@@ -9,7 +9,16 @@ Copyright (c) 2014 PesetaCoin Developers
 
 Que es PesetaCoin?
 ----------------
-TODO: Poner informacion de PesetaCoin.info
+ESPECIFICACIONES
+
+- Algoritmo Scrypt (POW)
+- Número total de monedas: 166,386,000 PTCs 
+- 166(.386) monedas por bloque (bajando a la mitad cada año)
+- Block target: 1 minuto 
+- Cambio de dificultad: Dinamico con Kimoto Gravity Well
+- Con soporte para Merged Mining
+- RPC Port: 16638
+- P2P Port: 16639
 
 
 
