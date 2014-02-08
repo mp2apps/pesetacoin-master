@@ -1265,8 +1265,8 @@ unsigned int static GetNextWorkRequired(const CBlockIndex* pindexLast, const CBl
         if (fTestNet) {
                 if (pindexLast->nHeight+1 >= 50) { DiffMode = 2; }
         }
-        else {
-                if (pindexLast->nHeight+1 >= 400000) { DiffMode = 2; }
+        else { // CryptoMP - Kimoto Will Start at block 46.000
+                if (pindexLast->nHeight+1 >= 46000) { DiffMode = 2; }
         }
         
         if                (DiffMode == 1) { return GetNextWorkRequired_V1(pindexLast, pblock); }
