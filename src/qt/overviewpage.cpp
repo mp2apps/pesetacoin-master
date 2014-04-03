@@ -157,9 +157,6 @@ void OverviewPage::requestReceived(QNetworkReply* reply){
     currentEuroExchange = euro.toFloat();
     currentUsdExchange = usd.toFloat();
 
-    qDebug() << currentEuroExchange;
-    qDebug() << currentUsdExchange;
-
     // CryptoMP - FIAT Values - Update at start
     QString OutputStr;
     OutputStr.sprintf("%.2f€/$%.2f", (currentBalance * currentEuroExchange) / 100000000, (currentBalance * currentUsdExchange) / 100000000);
