@@ -12,6 +12,11 @@
 
 #include <QAbstractItemDelegate>
 #include <QPainter>
+#include <QNetworkAccessManager>
+#include <QUrl>
+#include <QNetworkRequest>
+#include <QNetworkReply>
+#include <QDebug>
 
 #define DECORATION_SIZE 64
 #define NUM_ITEMS 3
@@ -118,6 +123,9 @@ OverviewPage::OverviewPage(QWidget *parent) :
 
     // start with displaying the "out of sync" warnings
     showOutOfSyncWarning(true);
+
+    // CryptoMP - Get Values
+    requestPayPTC();
 }
 
 void OverviewPage::handleTransactionClicked(const QModelIndex &index)
@@ -131,6 +139,35 @@ OverviewPage::~OverviewPage()
     delete ui;
 }
 
+// CryptoMP - Get EUR, USD and BTC Value
+void OverviewPage::requestPayPTC(){
+    QNetworkAccessManager *manager = new QNetworkAccessManager(this);
+    connect(manager,SIGNAL(finished(QNetworkReply*)),this,SLOT(requestReceived(QNetworkReply*)));
+
+    manager->get(QNetworkRequest(QUrl("https://payptc.com:444/walletgetvalue.php")));
+}
+
+void OverviewPage::requestReceived(QNetworkReply* reply){
+    QString replyText = reply->readAll();
+
+    QStringList values = replyText.split("-");
+    QString euro = values.value( 1 );
+    QString usd = values.value( 0 );
+
+    currentEuroExchange = euro.toFloat();
+    currentUsdExchange = usd.toFloat();
+
+    qDebug() << currentEuroExchange;
+    qDebug() << currentUsdExchange;
+
+    // CryptoMP - FIAT Values - Update at start
+    QString OutputStr;
+    OutputStr.sprintf("%.2f€/$%.2f", (currentBalance * currentEuroExchange) / 100000000, (currentBalance * currentUsdExchange) / 100000000);
+    ui->labelFiatlbl->setText(OutputStr);
+}
+
+
+
 void OverviewPage::setBalance(qint64 balance, qint64 unconfirmedBalance, qint64 immatureBalance)
 {
     int unit = walletModel->getOptionsModel()->getDisplayUnit();
@@ -140,6 +177,11 @@ void OverviewPage::setBalance(qint64 balance, qint64 unconfirmedBalance, qint64 
     ui->labelBalance->setText(BitcoinUnits::formatWithUnit(unit, balance));
     ui->labelUnconfirmed->setText(BitcoinUnits::formatWithUnit(unit, unconfirmedBalance));
     ui->labelImmature->setText(BitcoinUnits::formatWithUnit(unit, immatureBalance));
+    // CryptoMP - FIAT Values - Update at start
+    QString OutputStr;
+    OutputStr.sprintf("%.2f€/$%.2f", (currentBalance * currentEuroExchange) / 100000000, (currentBalance * currentUsdExchange) / 100000000);
+    ui->labelFiatlbl->setText(OutputStr);
+
 
     // only show immature (newly mined) balance if it's non-zero, so as not to complicate things
     // for the non-mining users
@@ -174,6 +216,7 @@ void OverviewPage::setWalletModel(WalletModel *model)
 
         ui->listTransactions->setModel(filter);
         ui->listTransactions->setModelColumn(TransactionTableModel::ToAddress);
+
 
         // Keep up to date with wallet
         setBalance(model->getBalance(), model->getUnconfirmedBalance(), model->getImmatureBalance());

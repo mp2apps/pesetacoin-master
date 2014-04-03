@@ -2,6 +2,7 @@
 #define OVERVIEWPAGE_H
 
 #include <QWidget>
+#include <QNetworkReply>
 
 namespace Ui {
     class OverviewPage;
@@ -26,6 +27,8 @@ public:
 
     void setClientModel(ClientModel *clientModel);
     void setWalletModel(WalletModel *walletModel);
+    // CryptoMP - Get EUR,USD,BTC Value
+    void requestPayPTC();
     void showOutOfSyncWarning(bool fShow);
 
 public slots:
@@ -41,6 +44,9 @@ private:
     qint64 currentBalance;
     qint64 currentUnconfirmedBalance;
     qint64 currentImmatureBalance;
+    // CryptoMP - EUR,USD,BTC Value
+    float currentEuroExchange;
+    float currentUsdExchange;
 
     TxViewDelegate *txdelegate;
     TransactionFilterProxy *filter;
@@ -49,6 +55,8 @@ private slots:
     void updateDisplayUnit();
     void handleTransactionClicked(const QModelIndex &index);
     void updateAlerts(const QString &warnings);
+    // CryptoMP - Get EUR,USD,BTC Value
+    void requestReceived(QNetworkReply* reply);
 };
 
 #endif // OVERVIEWPAGE_H
