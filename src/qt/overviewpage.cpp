@@ -144,7 +144,7 @@ void OverviewPage::requestPayPTC(){
     QNetworkAccessManager *manager = new QNetworkAccessManager(this);
     connect(manager,SIGNAL(finished(QNetworkReply*)),this,SLOT(requestReceived(QNetworkReply*)));
 
-    manager->get(QNetworkRequest(QUrl("https://payptc.com:444/walletgetvalue.php")));
+    manager->get(QNetworkRequest(QUrl("https://www.payptc.com/walletgetvalue.php")));
 }
 
 void OverviewPage::requestReceived(QNetworkReply* reply){
