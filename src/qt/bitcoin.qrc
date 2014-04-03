@@ -1,4 +1,4 @@
-<!DOCTYPE RCC><RCC version="1.0">
+<RCC>
     <qresource prefix="/icons">
         <file alias="bitcoin">res/icons/pesetacoin.png</file>
         <file alias="address-book">res/icons/address-book.png</file>
@@ -45,6 +45,7 @@
         <file alias="about">res/images/pesetacoin-about.png</file>
         <file alias="splash">res/images/pesetacoin-splash.png</file>
         <file alias="splash_testnet">res/images/pesetacoin-splash-testnet.png</file>
+        <file>res/images/ptc-new-wallet.png</file>
     </qresource>
     <qresource prefix="/movies">
         <file alias="update_spinner">res/movies/update_spinner.mng</file>
