@@ -21,7 +21,7 @@ BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
             VALUE "CompanyName",        "PesetaCoin"
-            VALUE "FileDescription",    "UnitesScryptCoin-Qt (OSS GUI client for PesetaCoin)"
+            VALUE "FileDescription",    "PesetaCoin-Qt (GUI client for PesetaCoin)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
             VALUE "InternalName",       "pesetacoin-qt"
             VALUE "LegalCopyright",     COPYRIGHT_STR

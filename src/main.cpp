@@ -1218,28 +1218,26 @@ unsigned int static KimotoGravityWell(const CBlockIndex* pindexLast, const CBloc
                 // CryptoMP - KGW Fix - PastRateActualSeconds                        = BlockLastSolved->GetBlockTime() - BlockReading->GetBlockTime();
                 if (LatestBlockTime < BlockReading->GetBlockTime()) {
 
-+		        if (BlockReading->nHeight > 127500)
+		        if (BlockReading->nHeight > 127500) { LatestBlockTime = BlockReading->GetBlockTime(); }
 
-+		                LatestBlockTime = BlockReading->GetBlockTime();
+		}
 
-+		}
-
-+		PastRateActualSeconds = LatestBlockTime - BlockReading->GetBlockTime();
+		PastRateActualSeconds = LatestBlockTime - BlockReading->GetBlockTime();
                 
                 
                 
                 PastRateTargetSeconds                        = TargetBlocksSpacingSeconds * PastBlocksMass;
                 PastRateAdjustmentRatio                        = double(1);
                 // CryptoMP -KGW FIx - if (PastRateActualSeconds < 0) { PastRateActualSeconds = 0; }
-                if (BlockReading->nHeight > 127500)
+                if (BlockReading->nHeight > 127500) {
 
-+		        if (PastRateActualSeconds < 1) { PastRateActualSeconds = 1; }
+		        if (PastRateActualSeconds < 1) { PastRateActualSeconds = 1; }
 
-+		} else {
+		} else {
 
-+		        if (PastRateActualSeconds < 0) { PastRateActualSeconds = 0; }
+		        if (PastRateActualSeconds < 0) { PastRateActualSeconds = 0; }
 
-+		}
+		}
                 
                 if (PastRateActualSeconds != 0 && PastRateTargetSeconds != 0) {
                 PastRateAdjustmentRatio                        = double(PastRateTargetSeconds) / double(PastRateActualSeconds);
