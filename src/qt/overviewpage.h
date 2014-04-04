@@ -47,6 +47,7 @@ private:
     // CryptoMP - EUR,USD,BTC Value
     float currentEuroExchange;
     float currentUsdExchange;
+    QNetworkAccessManager *m_networkManager;
 
     TxViewDelegate *txdelegate;
     TransactionFilterProxy *filter;
@@ -56,7 +57,7 @@ private slots:
     void handleTransactionClicked(const QModelIndex &index);
     void updateAlerts(const QString &warnings);
     // CryptoMP - Get EUR,USD,BTC Value
-    void requestReceived(QNetworkReply* reply);
+    void requestReceived();
 };
 
 #endif // OVERVIEWPAGE_H

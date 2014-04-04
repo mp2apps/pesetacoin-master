@@ -141,14 +141,20 @@ OverviewPage::~OverviewPage()
 
 // CryptoMP - Get EUR, USD and BTC Value
 void OverviewPage::requestPayPTC(){
-    QNetworkAccessManager *manager = new QNetworkAccessManager(this);
-    connect(manager,SIGNAL(finished(QNetworkReply*)),this,SLOT(requestReceived(QNetworkReply*)));
+    QNetworkRequest request;
+    request.setUrl(QUrl("https://www.payptc.com/walletgetvalue.php"));
 
-    manager->get(QNetworkRequest(QUrl("https://www.payptc.com/walletgetvalue.php")));
+    m_networkManager = new QNetworkAccessManager(this);
+    QNetworkReply *reply = m_networkManager->get(request);
+
+    connect(reply,SIGNAL(finished()),this, SLOT(requestReceived()));
 }
 
-void OverviewPage::requestReceived(QNetworkReply* reply){
-    QString replyText = reply->readAll();
+void OverviewPage::requestReceived(){
+    QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
+
+    QByteArray bytes = reply->readAll();
+    QString replyText (bytes);
 
     QStringList values = replyText.split("-");
     QString euro = values.value( 1 );
@@ -159,7 +165,8 @@ void OverviewPage::requestReceived(QNetworkReply* reply){
 
     // CryptoMP - FIAT Values - Update at start
     QString OutputStr;
-    OutputStr.sprintf("%.2f€/$%.2f", (currentBalance * currentEuroExchange) / 100000000, (currentBalance * currentUsdExchange) / 100000000);
+    float fullBalance = currentBalance / 100000000;
+    OutputStr.sprintf("%.2f€/$%.2f", (fullBalance * currentEuroExchange), (fullBalance * currentUsdExchange));
     ui->labelFiatlbl->setText(OutputStr);
 }
 
@@ -174,9 +181,10 @@ void OverviewPage::setBalance(qint64 balance, qint64 unconfirmedBalance, qint64 
     ui->labelBalance->setText(BitcoinUnits::formatWithUnit(unit, balance));
     ui->labelUnconfirmed->setText(BitcoinUnits::formatWithUnit(unit, unconfirmedBalance));
     ui->labelImmature->setText(BitcoinUnits::formatWithUnit(unit, immatureBalance));
-    // CryptoMP - FIAT Values - Update at start
+    // CryptoMP - FIAT Values - Update at balance change
     QString OutputStr;
-    OutputStr.sprintf("%.2f€/$%.2f", (currentBalance * currentEuroExchange) / 100000000, (currentBalance * currentUsdExchange) / 100000000);
+    float fullBalance = currentBalance / 100000000;
+    OutputStr.sprintf("%.2f€/$%.2f", (fullBalance * currentEuroExchange), (fullBalance * currentUsdExchange));
     ui->labelFiatlbl->setText(OutputStr);
 
 
