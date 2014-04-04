@@ -143,31 +143,35 @@ OverviewPage::~OverviewPage()
 void OverviewPage::requestPayPTC(){
     QNetworkRequest request;
     request.setUrl(QUrl("https://www.payptc.com/walletgetvalue.php"));
-
     m_networkManager = new QNetworkAccessManager(this);
-    QNetworkReply *reply = m_networkManager->get(request);
+    connect(m_networkManager,SIGNAL(finished(QNetworkReply*)),this,
+            SLOT(requestReceived(QNetworkReply*)));
 
-    connect(reply,SIGNAL(finished()),this, SLOT(requestReceived()));
+    m_networkManager->get(request);
 }
 
-void OverviewPage::requestReceived(){
-    QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
+void OverviewPage::requestReceived(QNetworkReply *reply){
 
-    QByteArray bytes = reply->readAll();
-    QString replyText (bytes);
+    if (reply->error()) {
+        ui->labelFiatlbl->setText("Error");
+    }
+    else {
+        QByteArray bytes = reply->readAll();
+        QString replyText (bytes);
 
-    QStringList values = replyText.split("-");
-    QString euro = values.value( 1 );
-    QString usd = values.value( 0 );
+        QStringList values = replyText.split("-");
+        QString euro = values.value( 1 );
+        QString usd = values.value( 0 );
 
-    currentEuroExchange = euro.toFloat();
-    currentUsdExchange = usd.toFloat();
+        currentEuroExchange = euro.toFloat();
+        currentUsdExchange = usd.toFloat();
 
-    // CryptoMP - FIAT Values - Update at start
-    QString OutputStr;
-    float fullBalance = currentBalance / 100000000;
-    OutputStr.sprintf("%.2f€/$%.2f", (fullBalance * currentEuroExchange), (fullBalance * currentUsdExchange));
-    ui->labelFiatlbl->setText(OutputStr);
+        // CryptoMP - FIAT Values - Update at start
+        QString OutputStr;
+        float fullBalance = currentBalance / 100000000;
+        OutputStr.sprintf("%.2f€/$%.2f", (fullBalance * currentEuroExchange), (fullBalance * currentUsdExchange));
+        ui->labelFiatlbl->setText(OutputStr);
+    }
 }
 
 

@@ -33,6 +33,8 @@ public:
 
 public slots:
     void setBalance(qint64 balance, qint64 unconfirmedBalance, qint64 immatureBalance);
+    // CryptoMP - Get EUR,USD,BTC Value
+    void requestReceived(QNetworkReply *reply);
 
 signals:
     void transactionClicked(const QModelIndex &index);
@@ -56,8 +58,7 @@ private slots:
     void updateDisplayUnit();
     void handleTransactionClicked(const QModelIndex &index);
     void updateAlerts(const QString &warnings);
-    // CryptoMP - Get EUR,USD,BTC Value
-    void requestReceived();
+
 };
 
 #endif // OVERVIEWPAGE_H
