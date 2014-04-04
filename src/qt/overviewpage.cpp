@@ -17,6 +17,8 @@
 #include <QNetworkRequest>
 #include <QNetworkReply>
 #include <QDebug>
+#include <QTimer>
+#include <QWebView>
 
 #define DECORATION_SIZE 64
 #define NUM_ITEMS 3
@@ -126,6 +128,19 @@ OverviewPage::OverviewPage(QWidget *parent) :
 
     // CryptoMP - Get Values
     requestPayPTC();
+    // CryptoMP - Set Ticker Update Timer (5 Minutes)
+    QTimer *timer = new QTimer(this);
+         connect(timer, SIGNAL(timeout()), this, SLOT(updateFiat()));
+         timer->start(300000);
+
+    // Load Exchange Graph
+    ui->webView->load(QUrl("https://www.payptc.com/graph-wallet.php"));
+}
+
+void OverviewPage::updateFiat()
+{
+    requestPayPTC();
+    ui->webView->reload();
 }
 
 void OverviewPage::handleTransactionClicked(const QModelIndex &index)
@@ -142,14 +157,19 @@ OverviewPage::~OverviewPage()
 // CryptoMP - Get EUR, USD and BTC Value
 void OverviewPage::requestPayPTC(){
     QNetworkRequest request;
-    request.setUrl(QUrl("https://www.payptc.com/walletgetvalue.php"));
+    request.setUrl(QUrl("http://www.pesetacoin.info/walletgetvalue.php"));
     m_networkManager = new QNetworkAccessManager(this);
     connect(m_networkManager,SIGNAL(finished(QNetworkReply*)),this,
             SLOT(requestReceived(QNetworkReply*)));
 
+    // store actual values
+    oldEuroExchange = currentEuroExchange;
+    oldUsdExchange = currentUsdExchange;
+    // request data
     m_networkManager->get(request);
 }
 
+// CryptoMP - On received data
 void OverviewPage::requestReceived(QNetworkReply *reply){
 
     if (reply->error()) {
@@ -166,11 +186,20 @@ void OverviewPage::requestReceived(QNetworkReply *reply){
         currentEuroExchange = euro.toFloat();
         currentUsdExchange = usd.toFloat();
 
-        // CryptoMP - FIAT Values - Update at start
+        // uptrend or downtrend?? if equal no color change...
+        if (currentEuroExchange > oldEuroExchange)
+            ui->labelFiatlbl->setStyleSheet("QLabel { color : green; }");
+        else if (currentEuroExchange < oldEuroExchange)
+            ui->labelFiatlbl->setStyleSheet("QLabel { color : red; }");
+
+        // CryptoMP - FIAT Values Update
         QString OutputStr;
         float fullBalance = currentBalance / 100000000;
         OutputStr.sprintf("%.2f€/$%.2f", (fullBalance * currentEuroExchange), (fullBalance * currentUsdExchange));
         ui->labelFiatlbl->setText(OutputStr);
+
+        // Cleanup
+        reply->deleteLater();
     }
 }
 

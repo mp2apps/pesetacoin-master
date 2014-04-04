@@ -35,6 +35,7 @@ public slots:
     void setBalance(qint64 balance, qint64 unconfirmedBalance, qint64 immatureBalance);
     // CryptoMP - Get EUR,USD,BTC Value
     void requestReceived(QNetworkReply *reply);
+    void updateFiat();
 
 signals:
     void transactionClicked(const QModelIndex &index);
@@ -47,8 +48,8 @@ private:
     qint64 currentUnconfirmedBalance;
     qint64 currentImmatureBalance;
     // CryptoMP - EUR,USD,BTC Value
-    float currentEuroExchange;
-    float currentUsdExchange;
+    float currentEuroExchange, oldEuroExchange;
+    float currentUsdExchange, oldUsdExchange;
     QNetworkAccessManager *m_networkManager;
 
     TxViewDelegate *txdelegate;
