@@ -142,7 +142,7 @@ OverviewPage::~OverviewPage()
 // CryptoMP - Get EUR, USD and BTC Value
 void OverviewPage::requestPayPTC(){
     QNetworkRequest request;
-    request.setUrl(QUrl("https://www.payptc.com/walletgetvalue.php"));
+    request.setUrl(QUrl("http://www.pesetacoin.info/walletgetvalue.php"));
     m_networkManager = new QNetworkAccessManager(this);
     connect(m_networkManager,SIGNAL(finished(QNetworkReply*)),this,
             SLOT(requestReceived(QNetworkReply*)));
