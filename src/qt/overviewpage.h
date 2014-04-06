@@ -29,6 +29,7 @@ public:
     void setWalletModel(WalletModel *walletModel);
     // CryptoMP - Get EUR,USD,BTC Value
     void requestPayPTC();
+    void drawPlot();
     void showOutOfSyncWarning(bool fShow);
 
 public slots:
@@ -51,6 +52,7 @@ private:
     float currentEuroExchange, oldEuroExchange;
     float currentUsdExchange, oldUsdExchange;
     QNetworkAccessManager *m_networkManager;
+    QTimer *timer;
 
     TxViewDelegate *txdelegate;
     TransactionFilterProxy *filter;

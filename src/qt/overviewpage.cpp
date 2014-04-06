@@ -18,7 +18,7 @@
 #include <QNetworkReply>
 #include <QDebug>
 #include <QTimer>
-#include <QWebView>
+
 
 #define DECORATION_SIZE 64
 #define NUM_ITEMS 3
@@ -129,18 +129,48 @@ OverviewPage::OverviewPage(QWidget *parent) :
     // CryptoMP - Get Values
     requestPayPTC();
     // CryptoMP - Set Ticker Update Timer (5 Minutes)
-    QTimer *timer = new QTimer(this);
+    timer = new QTimer(this);
          connect(timer, SIGNAL(timeout()), this, SLOT(updateFiat()));
          timer->start(300000);
 
     // Load Exchange Graph
-    ui->webView->load(QUrl("https://www.payptc.com/graph-wallet.php"));
+    //ui->webView->load(QUrl("https://www.payptc.com/graph-wallet.php"));
+}
+
+void OverviewPage::drawPlot()
+{
+    // generate some data:
+    QVector<double> x(101), y(101); // initialize with entries 0..100
+    for (int i=0; i<101; ++i)
+    {
+      x[i] = i; // x goes from -1 to 1
+      y[i] = x[i]*x[i]; // let's plot a quadratic function
+    }
+    // create graph and assign data to it:
+    ui->customPlot->addGraph();
+    ui->customPlot->graph(0)->setData(x, y);
+    // give the axes some labels:
+    ui->customPlot->xAxis->setLabel("PTC/EUR");
+    ui->customPlot->yAxis->setLabel("Time");
+    // set axes ranges, so we see all data:
+    ui->customPlot->xAxis->setRange(-1, 1);
+    ui->customPlot->yAxis->setRange(0, 1);
+
+    QPalette Pal(palette());
+    // set black background
+    Pal.setColor(QPalette::Background, Qt::black);
+    ui->customPlot->setAutoFillBackground(true);
+    ui->customPlot->setPalette(Pal);
+
+
+    ui->customPlot->replot();
+
 }
 
 void OverviewPage::updateFiat()
 {
     requestPayPTC();
-    ui->webView->reload();
+    //ui->webView->reload();
 }
 
 void OverviewPage::handleTransactionClicked(const QModelIndex &index)
@@ -151,13 +181,15 @@ void OverviewPage::handleTransactionClicked(const QModelIndex &index)
 
 OverviewPage::~OverviewPage()
 {
+    timer->stop();
+    delete timer;
     delete ui;
 }
 
 // CryptoMP - Get EUR, USD and BTC Value
 void OverviewPage::requestPayPTC(){
     QNetworkRequest request;
-    request.setUrl(QUrl("http://www.pesetacoin.info/walletgetvalue.php"));
+    request.setUrl(QUrl("http://www.pesetacoin.info/graph-wallet-new.php"));
     m_networkManager = new QNetworkAccessManager(this);
     connect(m_networkManager,SIGNAL(finished(QNetworkReply*)),this,
             SLOT(requestReceived(QNetworkReply*)));
@@ -179,7 +211,7 @@ void OverviewPage::requestReceived(QNetworkReply *reply){
         QByteArray bytes = reply->readAll();
         QString replyText (bytes);
 
-        QStringList values = replyText.split("-");
+        QStringList values = replyText.split("[]");
         QString euro = values.value( 1 );
         QString usd = values.value( 0 );
 
@@ -197,6 +229,42 @@ void OverviewPage::requestReceived(QNetworkReply *reply){
         float fullBalance = currentBalance / 100000000;
         OutputStr.sprintf("%.2f€/$%.2f", (fullBalance * currentEuroExchange), (fullBalance * currentUsdExchange));
         ui->labelFiatlbl->setText(OutputStr);
+
+        QDateTime datetime = QDateTime::currentDateTime();
+        uint theDate = datetime.toTime_t();
+
+       float lmin=1, lmax=0;
+        // Draw Plot
+        QVector<double> x(500), y(500); // initialize with entries 0..100
+        for (int i=0; i<499; i++)
+        {
+          x[i] = theDate - ((500-i)*1200);
+          QString euroVal = values.value( i+1 );
+          y[i] = euroVal.toFloat();
+
+          if (lmax < y[i]) lmax = y[i];
+          if (lmin > y[i]) lmin = y[i];
+        }
+        // create graph and assign data to it:
+        ui->customPlot->addGraph();
+        ui->customPlot->graph(0)->setData(x, y);
+        // give the axes some labels:
+        //ui->customPlot->xAxis->setLabel("Valor Ultimos 7 Días / Last 7 Days Value");
+
+        ui->customPlot->yAxis->setLabel("PTC/EUR");
+        // set axes ranges, so we see all data:
+        // configure bottom axis to show date and time instead of number:
+        ui->customPlot->xAxis->setTickLabelType(QCPAxis::ltDateTime);
+        ui->customPlot->xAxis->setDateTimeFormat("dd/MMM");
+
+
+        ui->customPlot->xAxis->setRange(theDate-600000, theDate);
+        ui->customPlot->yAxis->setRange(lmin, lmax);
+
+
+        ui->customPlot->setBackground( QBrush((QColor(240,240,240))) );
+
+        ui->customPlot->replot();
 
         // Cleanup
         reply->deleteLater();
