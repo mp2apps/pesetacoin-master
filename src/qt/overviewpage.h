@@ -28,8 +28,7 @@ public:
     void setClientModel(ClientModel *clientModel);
     void setWalletModel(WalletModel *walletModel);
     // CryptoMP - Get EUR,USD,BTC Value
-    void requestPayPTC();
-    void drawPlot();
+    void requestData();
     void showOutOfSyncWarning(bool fShow);
 
 public slots:
@@ -37,6 +36,11 @@ public slots:
     // CryptoMP - Get EUR,USD,BTC Value
     void requestReceived(QNetworkReply *reply);
     void updateFiat();
+    void onPtceur();
+    void onPtcusd();
+    void onOneday();
+    void onSevenday();
+    void onFtday();
 
 signals:
     void transactionClicked(const QModelIndex &index);
@@ -53,6 +57,8 @@ private:
     float currentUsdExchange, oldUsdExchange;
     QNetworkAccessManager *m_networkManager;
     QTimer *timer;
+    int m_currency;
+    int m_interval;
 
     TxViewDelegate *txdelegate;
     TransactionFilterProxy *filter;

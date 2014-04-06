@@ -21,18 +21,6 @@ CONFIG += thread
 #    BOOST_INCLUDE_PATH, BOOST_LIB_PATH, BDB_INCLUDE_PATH,
 #    BDB_LIB_PATH, OPENSSL_INCLUDE_PATH and OPENSSL_LIB_PATH respectively
 
-BOOST_LIB_SUFFIX=-mgw46-mt-s-1_55
-BOOST_INCLUDE_PATH=C:/deps/boost
-BOOST_LIB_PATH=C:/deps/boost/stage/lib
-BDB_INCLUDE_PATH=C:/deps/db/build_unix
-BDB_LIB_PATH=C:/deps/db/build_unix
-OPENSSL_INCLUDE_PATH=C:/deps/ssl/include
-OPENSSL_LIB_PATH=C:/deps/ssl
-QR_ENCODE_INCLUDE_PATH=C:/deps/qrencode-3.4.3/
-QR_ENCODE_LIB_PATH=C:/deps/qrencode-3.4.3/.libs
-MINIUPNPC_INCLUDE_PATH=C:/deps/
-MINIUPNPC_LIB_PATH=C:/deps/miniupnpc
-
 OBJECTS_DIR = build
 MOC_DIR = build
 UI_DIR = build
@@ -72,7 +60,7 @@ contains(USE_QRCODE, 1) {
     message(Building with QRCode support)
     DEFINES += USE_QRCODE
     INCLUDEPATH += $$QR_ENCODE_INCLUDE_PATH
-	LIBS += $$QR_ENCODE_LIB_PATH/libqrencode.a
+	LIBS += $$QR_ENCODE_LIB_PATH
 	LIBS += -lqrencode
 }
 
