@@ -20,9 +20,6 @@ ESPECIFICACIONES
 - RPC Port: 16638
 - P2P Port: 16639
 
-
-
-
 Compilación sin entorno gráfico:
 ----------------------------------
 
@@ -45,7 +42,7 @@ ejecutar:
 License
 -------
 
-Litecoin is released under the terms of the MIT license. See `COPYING` for more
+PesetaCoin is released under the terms of the MIT license. See `COPYING` for more
 information or see http://opensource.org/licenses/MIT.
 
 Development process
@@ -91,5 +88,5 @@ Unit tests for the GUI code are in `src/qt/test/`. To compile and run them:
 
     qmake BITCOIN_QT_TEST=1 -o Makefile.test bitcoin-qt.pro
     make -f Makefile.test
-    ./litecoin-qt_test
+    ./pesetacoin-qt_test
 
