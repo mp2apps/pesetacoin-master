@@ -2373,16 +2373,16 @@ bool CBlock::AcceptBlock(CValidationState &state, CDiskBlockPos *dbp)
             return state.DoS(100, error("AcceptBlock() : incorrect proof of work %d : %d ",nBits, GetNextWorkRequired(pindexPrev, this)));
         */
         
-        if (nHeight < 525600)
-	{
-        	if (nBits != GetNextWorkRequired(pindexPrev, this))
-            		printf("AcceptBlock() : incorrect proof of work nBits: %d : GetNextWorkRequired: %d ",nBits, GetNextWorkRequired(pindexPrev, this));
-	}
-	else
-	{
-		if (nBits != GetNextWorkRequired(pindexPrev, this))
-            		return state.DoS(100, error("AcceptBlock() : incorrect proof of work %d : %d ",nBits, GetNextWorkRequired(pindexPrev, this)));
-	}
+        //if (nHeight < 525600)
+	//{
+        if (nBits != GetNextWorkRequired(pindexPrev, this))
+            	printf("AcceptBlock() : incorrect proof of work nBits: %d : GetNextWorkRequired: %d ",nBits, GetNextWorkRequired(pindexPrev, this));
+	//}
+	//else
+	//{
+	//	if (nBits != GetNextWorkRequired(pindexPrev, this))
+        //    		return state.DoS(100, error("AcceptBlock() : incorrect proof of work %d : %d ",nBits, GetNextWorkRequired(pindexPrev, this)));
+	//}
         // Check timestamp against prev
         if (GetBlockTime() <= pindexPrev->GetMedianTimePast())
             return state.Invalid(error("AcceptBlock() : block's timestamp is too early"));
