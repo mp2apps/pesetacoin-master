@@ -274,7 +274,7 @@ Ez a termék az OpenSSL Project által lett kifejlesztve az OpenSSL Toolkit (htt
     </message>
     <message>
         <location line="-56"/>
-        <source>Pesetacoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your litecoins from being stolen by malware infecting your computer.</source>
+        <source>Pesetacoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your pesetacoins from being stolen by malware infecting your computer.</source>
         <translation>Pesetacoin will close now to finish the encryption process. Ne feledd, hogy a tárca titkosítása sem nyújt teljes védelmet az adathalász programok fertőzésével szemben.</translation>
     </message>
     <message>
@@ -1069,7 +1069,7 @@ Cím: %4
     <name>PaymentServer</name>
     <message>
         <location filename="../paymentserver.cpp" line="+107"/>
-        <source>Cannot start litecoin: click-to-pay handler</source>
+        <source>Cannot start pesetacoin: click-to-pay handler</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1365,7 +1365,7 @@ Cím: %4
     <message>
         <location line="+5"/>
         <source>The amount exceeds your balance.</source>
-        <translation>Nincs ennyi litecoin az egyenlegeden.</translation>
+        <translation>Nincs ennyi pesetacoin az egyenlegeden.</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -1407,7 +1407,7 @@ Cím: %4
     </message>
     <message>
         <location line="+34"/>
-        <source>The address to send the payment to (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
+        <source>The address to send the payment to (e.g. LGfR55WPULK6S7eoeEGYW5CLSUFWWZiH5Q)</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1449,8 +1449,8 @@ Cím: %4
     </message>
     <message>
         <location filename="../sendcoinsentry.cpp" line="+1"/>
-        <source>Enter a Pesetacoin address (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
-        <translation>Adj meg egy Pesetacoin-címet (pl.: Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2 )</translation>
+        <source>Enter a Pesetacoin address (e.g. LGfR55WPULK6S7eoeEGYW5CLSUFWWZiH5Q)</source>
+        <translation>Adj meg egy Pesetacoin-címet (pl.: LGfR55WPULK6S7eoeEGYW5CLSUFWWZiH5Q )</translation>
     </message>
 </context>
 <context>
@@ -1472,8 +1472,8 @@ Cím: %4
     </message>
     <message>
         <location line="+18"/>
-        <source>The address to sign the message with (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
-        <translation>Adj meg egy Pesetacoin-címet (pl.: Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2 )</translation>
+        <source>The address to sign the message with (e.g. LGfR55WPULK6S7eoeEGYW5CLSUFWWZiH5Q)</source>
+        <translation>Adj meg egy Pesetacoin-címet (pl.: LGfR55WPULK6S7eoeEGYW5CLSUFWWZiH5Q )</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -1545,8 +1545,8 @@ Cím: %4
     </message>
     <message>
         <location line="+21"/>
-        <source>The address the message was signed with (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
-        <translation>Adj meg egy Pesetacoin-címet (pl.: Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2 )</translation>
+        <source>The address the message was signed with (e.g. LGfR55WPULK6S7eoeEGYW5CLSUFWWZiH5Q)</source>
+        <translation>Adj meg egy Pesetacoin-címet (pl.: LGfR55WPULK6S7eoeEGYW5CLSUFWWZiH5Q )</translation>
     </message>
     <message>
         <location line="+40"/>
@@ -1566,8 +1566,8 @@ Cím: %4
     <message>
         <location filename="../signverifymessagedialog.cpp" line="+27"/>
         <location line="+3"/>
-        <source>Enter a Pesetacoin address (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
-        <translation>Adj meg egy Pesetacoin-címet (pl.: Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2 )</translation>
+        <source>Enter a Pesetacoin address (e.g. LGfR55WPULK6S7eoeEGYW5CLSUFWWZiH5Q)</source>
+        <translation>Adj meg egy Pesetacoin-címet (pl.: LGfR55WPULK6S7eoeEGYW5CLSUFWWZiH5Q )</translation>
     </message>
     <message>
         <location line="-2"/>
@@ -2198,8 +2198,8 @@ Cím: %4
     </message>
     <message>
         <location line="-29"/>
-        <source>Send command to -server or litecoind</source>
-        <translation>Parancs küldése a -serverhez vagy a litecoindhez
+        <source>Send command to -server or pesetacoind</source>
+        <translation>Parancs küldése a -serverhez vagy a pesetacoindhez
 </translation>
     </message>
     <message>
@@ -2222,14 +2222,14 @@ Cím: %4
     </message>
     <message>
         <location line="+24"/>
-        <source>Specify configuration file (default: litecoin.conf)</source>
-        <translation>Konfigurációs fájl (alapértelmezett: litecoin.conf)
+        <source>Specify configuration file (default: pesetacoin.conf)</source>
+        <translation>Konfigurációs fájl (alapértelmezett: pesetacoin.conf)
 </translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Specify pid file (default: litecoind.pid)</source>
-        <translation>pid-fájl (alapértelmezett: litecoind.pid)
+        <source>Specify pid file (default: pesetacoind.pid)</source>
+        <translation>pid-fájl (alapértelmezett: pesetacoind.pid)
 </translation>
     </message>
     <message>
@@ -2311,7 +2311,7 @@ Cím: %4
         <source>%s, you must set a rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
-rpcuser=litecoinrpc
+rpcuser=pesetacoinrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
@@ -2880,7 +2880,7 @@ for example: alertnotify=echo %%s | mail -s &quot;Pesetacoin Alert&quot; admin@f
     <message>
         <location line="-6"/>
         <source>Insufficient funds</source>
-        <translation>Nincs elég litecoinod.</translation>
+        <translation>Nincs elég pesetacoinod.</translation>
     </message>
     <message>
         <location line="+10"/>

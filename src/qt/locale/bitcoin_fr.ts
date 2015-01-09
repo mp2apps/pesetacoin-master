@@ -275,7 +275,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="-56"/>
-        <source>Pesetacoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your litecoins from being stolen by malware infecting your computer.</source>
+        <source>Pesetacoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your pesetacoins from being stolen by malware infecting your computer.</source>
         <translation>Pesetacoin va à présent se fermer pour terminer la procédure de cryptage. N&apos;oubliez pas que le chiffrement de votre porte-monnaie ne peut pas fournir une protection totale contre le vol par des logiciels malveillants qui infecteraient votre ordinateur.</translation>
     </message>
     <message>
@@ -1069,8 +1069,8 @@ Adresse : %4
     <name>PaymentServer</name>
     <message>
         <location filename="../paymentserver.cpp" line="+107"/>
-        <source>Cannot start litecoin: click-to-pay handler</source>
-        <translation>Impossible de démarrer litecoin : gestionnaire de cliquer-pour-payer</translation>
+        <source>Cannot start pesetacoin: click-to-pay handler</source>
+        <translation>Impossible de démarrer pesetacoin : gestionnaire de cliquer-pour-payer</translation>
     </message>
 </context>
 <context>
@@ -1407,8 +1407,8 @@ Adresse : %4
     </message>
     <message>
         <location line="+34"/>
-        <source>The address to send the payment to (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
-        <translation>L&apos;adresse à laquelle le paiement sera envoyé (par ex. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
+        <source>The address to send the payment to (e.g. LGfR55WPULK6S7eoeEGYW5CLSUFWWZiH5Q)</source>
+        <translation>L&apos;adresse à laquelle le paiement sera envoyé (par ex. LGfR55WPULK6S7eoeEGYW5CLSUFWWZiH5Q)</translation>
     </message>
     <message>
         <location line="+60"/>
@@ -1448,8 +1448,8 @@ Adresse : %4
     </message>
     <message>
         <location filename="../sendcoinsentry.cpp" line="+1"/>
-        <source>Enter a Pesetacoin address (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
-        <translation>Entrez une adresse Pesetacoin (par ex. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
+        <source>Enter a Pesetacoin address (e.g. LGfR55WPULK6S7eoeEGYW5CLSUFWWZiH5Q)</source>
+        <translation>Entrez une adresse Pesetacoin (par ex. LGfR55WPULK6S7eoeEGYW5CLSUFWWZiH5Q)</translation>
     </message>
 </context>
 <context>
@@ -1471,8 +1471,8 @@ Adresse : %4
     </message>
     <message>
         <location line="+18"/>
-        <source>The address to sign the message with (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
-        <translation>L&apos;adresse avec laquelle le message sera signé (par ex. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
+        <source>The address to sign the message with (e.g. LGfR55WPULK6S7eoeEGYW5CLSUFWWZiH5Q)</source>
+        <translation>L&apos;adresse avec laquelle le message sera signé (par ex. LGfR55WPULK6S7eoeEGYW5CLSUFWWZiH5Q)</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -1544,8 +1544,8 @@ Adresse : %4
     </message>
     <message>
         <location line="+21"/>
-        <source>The address the message was signed with (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
-        <translation>L&apos;adresse avec laquelle le message a été signé (par ex. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
+        <source>The address the message was signed with (e.g. LGfR55WPULK6S7eoeEGYW5CLSUFWWZiH5Q)</source>
+        <translation>L&apos;adresse avec laquelle le message a été signé (par ex. LGfR55WPULK6S7eoeEGYW5CLSUFWWZiH5Q)</translation>
     </message>
     <message>
         <location line="+40"/>
@@ -1565,8 +1565,8 @@ Adresse : %4
     <message>
         <location filename="../signverifymessagedialog.cpp" line="+27"/>
         <location line="+3"/>
-        <source>Enter a Pesetacoin address (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
-        <translation>Entrez une adresse Pesetacoin (par ex. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
+        <source>Enter a Pesetacoin address (e.g. LGfR55WPULK6S7eoeEGYW5CLSUFWWZiH5Q)</source>
+        <translation>Entrez une adresse Pesetacoin (par ex. LGfR55WPULK6S7eoeEGYW5CLSUFWWZiH5Q)</translation>
     </message>
     <message>
         <location line="-2"/>
@@ -2197,8 +2197,8 @@ Adresse : %4
     </message>
     <message>
         <location line="-29"/>
-        <source>Send command to -server or litecoind</source>
-        <translation>Envoyer une commande à -server ou à litecoind</translation>
+        <source>Send command to -server or pesetacoind</source>
+        <translation>Envoyer une commande à -server ou à pesetacoind</translation>
     </message>
     <message>
         <location line="-23"/>
@@ -2217,13 +2217,13 @@ Adresse : %4
     </message>
     <message>
         <location line="+24"/>
-        <source>Specify configuration file (default: litecoin.conf)</source>
-        <translation>Spécifier le fichier de configuration (par défaut : litecoin.conf)</translation>
+        <source>Specify configuration file (default: pesetacoin.conf)</source>
+        <translation>Spécifier le fichier de configuration (par défaut : pesetacoin.conf)</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Specify pid file (default: litecoind.pid)</source>
-        <translation>Spécifier le fichier PID (par défaut : litecoind.pid)</translation>
+        <source>Specify pid file (default: pesetacoind.pid)</source>
+        <translation>Spécifier le fichier PID (par défaut : pesetacoind.pid)</translation>
     </message>
     <message>
         <location line="-1"/>
@@ -2300,7 +2300,7 @@ Adresse : %4
         <source>%s, you must set a rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
-rpcuser=litecoinrpc
+rpcuser=pesetacoinrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
@@ -2311,7 +2311,7 @@ for example: alertnotify=echo %%s | mail -s &quot;Pesetacoin Alert&quot; admin@f
         <translation>%s, vous devez définir un mot de passe rpc dans le fichier de configuration : 
 %s
 Il vous est conseillé d&apos;utiliser le mot de passe aléatoire suivant :
-rpcuser=litecoinrpc
+rpcuser=pesetacoinrpc
 rpcpassword=%s
 (vous n&apos;avez pas besoin de retenir ce mot de passe)
 Le nom d&apos;utilisateur et le mot de passe NE DOIVENT PAS être identiques.

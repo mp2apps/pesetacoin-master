@@ -275,8 +275,8 @@ Tento produkt zahrnuje programy vyvinuté OpenSSL Projektem pro použití v Open
     </message>
     <message>
         <location line="-56"/>
-        <source>Pesetacoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your litecoins from being stolen by malware infecting your computer.</source>
-        <translation>Pesetacoin se teď ukončí, aby dokončil zašifrování. Pamatuj však, že pouhé zašifrování peněženky úplně nezabraňuje krádeži tvých litecoinů malwarem, kterým se může počítač nakazit.</translation>
+        <source>Pesetacoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your pesetacoins from being stolen by malware infecting your computer.</source>
+        <translation>Pesetacoin se teď ukončí, aby dokončil zašifrování. Pamatuj však, že pouhé zašifrování peněženky úplně nezabraňuje krádeži tvých pesetacoinů malwarem, kterým se může počítač nakazit.</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -945,7 +945,7 @@ Adresa: %4
     <message>
         <location line="+9"/>
         <source>Whether to show Pesetacoin addresses in the transaction list or not.</source>
-        <translation>Zda ukazovat litecoinové adresy ve výpisu transakcí nebo ne.</translation>
+        <translation>Zda ukazovat pesetacoinové adresy ve výpisu transakcí nebo ne.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1069,8 +1069,8 @@ Adresa: %4
     <name>PaymentServer</name>
     <message>
         <location filename="../paymentserver.cpp" line="+107"/>
-        <source>Cannot start litecoin: click-to-pay handler</source>
-        <translation>Nemůžu spustit litecoin: obsluha click-to-pay</translation>
+        <source>Cannot start pesetacoin: click-to-pay handler</source>
+        <translation>Nemůžu spustit pesetacoin: obsluha click-to-pay</translation>
     </message>
 </context>
 <context>
@@ -1407,8 +1407,8 @@ Adresa: %4
     </message>
     <message>
         <location line="+34"/>
-        <source>The address to send the payment to (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
-        <translation>Adresa příjemce (např. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
+        <source>The address to send the payment to (e.g. LGfR55WPULK6S7eoeEGYW5CLSUFWWZiH5Q)</source>
+        <translation>Adresa příjemce (např. LGfR55WPULK6S7eoeEGYW5CLSUFWWZiH5Q)</translation>
     </message>
     <message>
         <location line="+60"/>
@@ -1448,8 +1448,8 @@ Adresa: %4
     </message>
     <message>
         <location filename="../sendcoinsentry.cpp" line="+1"/>
-        <source>Enter a Pesetacoin address (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
-        <translation>Zadej Pesetacoinovou adresu (např. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
+        <source>Enter a Pesetacoin address (e.g. LGfR55WPULK6S7eoeEGYW5CLSUFWWZiH5Q)</source>
+        <translation>Zadej Pesetacoinovou adresu (např. LGfR55WPULK6S7eoeEGYW5CLSUFWWZiH5Q)</translation>
     </message>
 </context>
 <context>
@@ -1471,8 +1471,8 @@ Adresa: %4
     </message>
     <message>
         <location line="+18"/>
-        <source>The address to sign the message with (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
-        <translation>Adresa, kterou se zpráva podepíše (např. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
+        <source>The address to sign the message with (e.g. LGfR55WPULK6S7eoeEGYW5CLSUFWWZiH5Q)</source>
+        <translation>Adresa, kterou se zpráva podepíše (např. LGfR55WPULK6S7eoeEGYW5CLSUFWWZiH5Q)</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -1544,8 +1544,8 @@ Adresa: %4
     </message>
     <message>
         <location line="+21"/>
-        <source>The address the message was signed with (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
-        <translation>Adresa, kterou je zpráva podepsána (např. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
+        <source>The address the message was signed with (e.g. LGfR55WPULK6S7eoeEGYW5CLSUFWWZiH5Q)</source>
+        <translation>Adresa, kterou je zpráva podepsána (např. LGfR55WPULK6S7eoeEGYW5CLSUFWWZiH5Q)</translation>
     </message>
     <message>
         <location line="+40"/>
@@ -1565,8 +1565,8 @@ Adresa: %4
     <message>
         <location filename="../signverifymessagedialog.cpp" line="+27"/>
         <location line="+3"/>
-        <source>Enter a Pesetacoin address (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
-        <translation>Zadej Pesetacoinovou adresu (např. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
+        <source>Enter a Pesetacoin address (e.g. LGfR55WPULK6S7eoeEGYW5CLSUFWWZiH5Q)</source>
+        <translation>Zadej Pesetacoinovou adresu (např. LGfR55WPULK6S7eoeEGYW5CLSUFWWZiH5Q)</translation>
     </message>
     <message>
         <location line="-2"/>
@@ -2197,8 +2197,8 @@ Adresa: %4
     </message>
     <message>
         <location line="-29"/>
-        <source>Send command to -server or litecoind</source>
-        <translation>Poslat příkaz pro -server nebo litecoind</translation>
+        <source>Send command to -server or pesetacoind</source>
+        <translation>Poslat příkaz pro -server nebo pesetacoind</translation>
     </message>
     <message>
         <location line="-23"/>
@@ -2217,13 +2217,13 @@ Adresa: %4
     </message>
     <message>
         <location line="+24"/>
-        <source>Specify configuration file (default: litecoin.conf)</source>
-        <translation>Konfigurační soubor (výchozí: litecoin.conf)</translation>
+        <source>Specify configuration file (default: pesetacoin.conf)</source>
+        <translation>Konfigurační soubor (výchozí: pesetacoin.conf)</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Specify pid file (default: litecoind.pid)</source>
-        <translation>PID soubor (výchozí: litecoind.pid)</translation>
+        <source>Specify pid file (default: pesetacoind.pid)</source>
+        <translation>PID soubor (výchozí: pesetacoind.pid)</translation>
     </message>
     <message>
         <location line="-1"/>
@@ -2300,7 +2300,7 @@ Adresa: %4
         <source>%s, you must set a rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
-rpcuser=litecoinrpc
+rpcuser=pesetacoinrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
@@ -2311,7 +2311,7 @@ for example: alertnotify=echo %%s | mail -s &quot;Pesetacoin Alert&quot; admin@f
         <translation>%s, musíš nastavit rpcpassword v konfiguračním souboru:
 %s
 Je vhodné použít následující náhodné heslo:
-rpcuser=litecoinrpc
+rpcuser=pesetacoinrpc
 rpcpassword=%s
 (není potřeba si ho pamatovat)
 rpcuser a rpcpassword NESMÍ být stejné.

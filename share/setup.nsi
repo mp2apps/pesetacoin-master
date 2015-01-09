@@ -7,7 +7,7 @@ SetCompressor /SOLID lzma
 !define REGKEY "SOFTWARE\$(^Name)"
 !define VERSION 0.8.6.2
 !define COMPANY "PesetaCoin project"
-!define URL http://www.litecoin.org/
+!define URL http://www.pesetacoin.org/
 
 # MUI Symbol Definitions
 !define MUI_ICON "../share/pixmaps/pesetacoin.ico"
@@ -131,7 +131,7 @@ Section -un.post UNSEC0001
     DeleteRegKey HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)"
     Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\Uninstall PesetaCoin.lnk"
     Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\PesetaCoin.lnk"
-    Delete /REBOOTOK "$SMSTARTUP\Litecoin.lnk"
+    Delete /REBOOTOK "$SMSTARTUP\Pesetacoin.lnk"
     Delete /REBOOTOK $INSTDIR\uninstall.exe
     Delete /REBOOTOK $INSTDIR\debug.log
     Delete /REBOOTOK $INSTDIR\db.log

@@ -24,10 +24,10 @@ SignVerifyMessageDialog::SignVerifyMessageDialog(QWidget *parent) :
 
 #if (QT_VERSION >= 0x040700)
     /* Do not move this to the XML file, Qt before 4.7 will choke on it */
-    ui->addressIn_SM->setPlaceholderText(tr("Enter a PesetaCoin address (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)"));
+    ui->addressIn_SM->setPlaceholderText(tr("Enter a PesetaCoin address (e.g. LGfR55WPULK6S7eoeEGYW5CLSUFWWZiH5Q)"));
     ui->signatureOut_SM->setPlaceholderText(tr("Click \"Sign Message\" to generate signature"));
 
-    ui->addressIn_VM->setPlaceholderText(tr("Enter a PesetaCoin address (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)"));
+    ui->addressIn_VM->setPlaceholderText(tr("Enter a PesetaCoin address (e.g. LGfR55WPULK6S7eoeEGYW5CLSUFWWZiH5Q)"));
     ui->signatureIn_VM->setPlaceholderText(tr("Enter PesetaCoin signature"));
 #endif
 

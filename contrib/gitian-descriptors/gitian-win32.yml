@@ -1,5 +1,5 @@
 ---
-name: "litecoin"
+name: "pesetacoin"
 suites:
 - "precise"
 architectures:
@@ -14,7 +14,7 @@ packages:
 reference_datetime: "2011-01-30 00:00:00"
 remotes:
 - "url": "/tmp/pesetacoin"
-  "dir": "litecoin"
+  "dir": "pesetacoin"
 files:
 - "qt-win32-4.8.3-gitian-r4.zip"
 - "boost-win32-1.55.0-gitian-r6.zip"
@@ -31,7 +31,7 @@ script: |
   unzip ../build/bitcoin-deps-win32-gitian-r9.zip
   cd $HOME/build/
   #
-  cd litecoin
+  cd pesetacoin
   export PATH=$STAGING/host/bin:$PATH
   mkdir -p $OUTDIR/src
   git archive HEAD | tar -x -C $OUTDIR/src
@@ -41,7 +41,7 @@ script: |
   export FAKETIME=$REFERENCE_DATETIME
   export TZ=UTC
   ln -s $STAGING $HOME/qt
-  $HOME/staging/host/bin/qmake -spec unsupported/win32-g++-cross MINIUPNPC_LIB_PATH=$STAGING MINIUPNPC_INCLUDE_PATH=$STAGING BDB_LIB_PATH=$STAGING BDB_INCLUDE_PATH=$STAGING BOOST_LIB_PATH=$STAGING BOOST_INCLUDE_PATH=$STAGING BOOST_LIB_SUFFIX=-mt-s BOOST_THREAD_LIB_SUFFIX=_win32-mt-s OPENSSL_LIB_PATH=$STAGING OPENSSL_INCLUDE_PATH=$STAGING QRENCODE_LIB_PATH=$STAGING QRENCODE_INCLUDE_PATH=$STAGING USE_QRCODE=1 INCLUDEPATH=$STAGING DEFINES=BOOST_THREAD_USE_LIB BITCOIN_NEED_QT_PLUGINS=1 QMAKE_LRELEASE=lrelease QMAKE_CXXFLAGS=-frandom-seed=litecoin USE_BUILD_INFO=1 USE_SSE2=1
+  $HOME/staging/host/bin/qmake -spec unsupported/win32-g++-cross MINIUPNPC_LIB_PATH=$STAGING MINIUPNPC_INCLUDE_PATH=$STAGING BDB_LIB_PATH=$STAGING BDB_INCLUDE_PATH=$STAGING BOOST_LIB_PATH=$STAGING BOOST_INCLUDE_PATH=$STAGING BOOST_LIB_SUFFIX=-mt-s BOOST_THREAD_LIB_SUFFIX=_win32-mt-s OPENSSL_LIB_PATH=$STAGING OPENSSL_INCLUDE_PATH=$STAGING QRENCODE_LIB_PATH=$STAGING QRENCODE_INCLUDE_PATH=$STAGING USE_QRCODE=1 INCLUDEPATH=$STAGING DEFINES=BOOST_THREAD_USE_LIB BITCOIN_NEED_QT_PLUGINS=1 QMAKE_LRELEASE=lrelease QMAKE_CXXFLAGS=-frandom-seed=pesetacoin USE_BUILD_INFO=1 USE_SSE2=1
   make $MAKEOPTS
   $HOST-strip release/pesetacoin-qt.exe
   cp release/pesetacoin-qt.exe $OUTDIR/
@@ -50,7 +50,7 @@ script: |
   export LD_PRELOAD=/usr/lib/faketime/libfaketime.so.1
   export FAKETIME=$REFERENCE_DATETIME
   export TZ=UTC
-  make -f makefile.linux-mingw $MAKEOPTS DEPSDIR=$STAGING pesetacoind.exe USE_UPNP=0 DEBUGFLAGS="-frandom-seed=litecoin" USE_SSE2=1
+  make -f makefile.linux-mingw $MAKEOPTS DEPSDIR=$STAGING pesetacoind.exe USE_UPNP=0 DEBUGFLAGS="-frandom-seed=pesetacoin" USE_SSE2=1
   $HOST-strip pesetacoind.exe
   mkdir $OUTDIR/daemon
   cp pesetacoind.exe $OUTDIR/daemon

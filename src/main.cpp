@@ -4861,7 +4861,7 @@ void static ScryptMiner(CWallet *pwallet)
 {
     printf("ScryptMiner started\n");
     SetThreadPriority(THREAD_PRIORITY_LOWEST);
-    RenameThread("litecoin-miner");
+    RenameThread("pesetacoin-miner");
 
     // Each thread has its own key and counter
     CReserveKey reservekey(pwallet);

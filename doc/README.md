@@ -2,7 +2,7 @@ PesetaCoin 0.8.x BETA
 ====================
 
 Copyright (c) 2009-2013 Bitcoin Developers
-Copyright (c) 2011-2013 Litecoin Developers
+Copyright (c) 2011-2013 Pesetacoin Developers
 Copyright (c) 2011-2014 PesetaCoin Developers
 
 Distributed under the MIT/X11 software license, see the accompanying
@@ -21,7 +21,7 @@ with each other, with the help of a P2P network to check for double-spending.
 
 Setup
 ---------------------
-You need the Qt4 run-time libraries to run Litecoin-Qt. On Debian or Ubuntu:
+You need the Qt4 run-time libraries to run Pesetacoin-Qt. On Debian or Ubuntu:
 	`sudo apt-get install libqtgui4`
 
 Unpack the files into a directory and run:
