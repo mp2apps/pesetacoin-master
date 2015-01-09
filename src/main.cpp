@@ -1077,11 +1077,31 @@ uint256 static GetOrphanRoot(const CBlockHeader* pblock)
 
 int64 static GetBlockValue(int nHeight, int64 nFees)
 {
-    int64 nSubsidy = 166.386 * COIN;
+	
+    int64_t nSubsidy = 166.386 * COIN;
 
-    // Subsidy is cut in half every 840000 blocks, which will occur approximately every 4 years
-    nSubsidy >>= (nHeight / 525600); // Pesetacoin: 840k blocks in ~4 years
-
+    if (nHeight < 545000)
+    {
+    nSubsidy >>= (nHeight / 525600); // Pesetacoin: 525600 blocks in ~1 years
+    }
+    else if(nHeight < 1576800)
+    {
+        nSubsidy = 50 * COIN;
+        nSubsidy >>= (nHeight / 788400);
+    }
+    else if(nHeight < 2628000)
+    {
+        nSubsidy = 10 * COIN;
+    }
+    else if(nHeight < 8409600)
+    {
+        nSubsidy = 5 * COIN;
+    }
+    else
+    {
+        return nFees;
+    }
+    
     return nSubsidy + nFees;
 }
 
@@ -2373,16 +2393,17 @@ bool CBlock::AcceptBlock(CValidationState &state, CDiskBlockPos *dbp)
             return state.DoS(100, error("AcceptBlock() : incorrect proof of work %d : %d ",nBits, GetNextWorkRequired(pindexPrev, this)));
         */
         
-        //if (nHeight < 525600)
-	//{
+        if (nHeight < 545000)
+	{
         if (nBits != GetNextWorkRequired(pindexPrev, this))
             	printf("AcceptBlock() : incorrect proof of work nBits: %d : GetNextWorkRequired: %d ",nBits, GetNextWorkRequired(pindexPrev, this));
-	//}
-	//else
-	//{
-	//	if (nBits != GetNextWorkRequired(pindexPrev, this))
-        //    		return state.DoS(100, error("AcceptBlock() : incorrect proof of work %d : %d ",nBits, GetNextWorkRequired(pindexPrev, this)));
-	//}
+	}
+	else
+	{
+		if (nBits != GetNextWorkRequired(pindexPrev, this))
+            		return state.DoS(100, error("AcceptBlock() : incorrect proof of work %d : %d ",nBits, GetNextWorkRequired(pindexPrev, this)));
+	}
+        
         // Check timestamp against prev
         if (GetBlockTime() <= pindexPrev->GetMedianTimePast())
             return state.Invalid(error("AcceptBlock() : block's timestamp is too early"));
