@@ -1080,14 +1080,14 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
 	
     int64_t nSubsidy = 166.386 * COIN;
 
-    if (nHeight < 545000)
+    if (nHeight < 550000)
     {
-    nSubsidy >>= (nHeight / 525600); // Pesetacoin: 525600 blocks in ~1 years
+    	nSubsidy >>= (nHeight / 525600); // Pesetacoin: 525600 blocks in ~1 years
     }
     else if(nHeight < 1576800)
     {
         nSubsidy = 50 * COIN;
-        nSubsidy >>= (nHeight / 788400);
+        nSubsidy >>= (nHeight / 1051200);
     }
     else if(nHeight < 2628000)
     {
@@ -2393,10 +2393,10 @@ bool CBlock::AcceptBlock(CValidationState &state, CDiskBlockPos *dbp)
             return state.DoS(100, error("AcceptBlock() : incorrect proof of work %d : %d ",nBits, GetNextWorkRequired(pindexPrev, this)));
         */
         
-        if (nHeight < 545000)
+        if (nHeight < 550000)
 	{
-        if (nBits != GetNextWorkRequired(pindexPrev, this))
-            	printf("AcceptBlock() : incorrect proof of work nBits: %d : GetNextWorkRequired: %d ",nBits, GetNextWorkRequired(pindexPrev, this));
+        	if (nBits != GetNextWorkRequired(pindexPrev, this))
+            		printf("AcceptBlock() : incorrect proof of work nBits: %d : GetNextWorkRequired: %d ",nBits, GetNextWorkRequired(pindexPrev, this));
 	}
 	else
 	{
