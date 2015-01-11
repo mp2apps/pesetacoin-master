@@ -5,7 +5,7 @@ http://www.pesetacoin.info
 
 Copyright (c) 2009-2013 Bitcoin Developers<br />
 Copyright (c) 2011-2013 Litecoin Developers<br />
-Copyright (c) 2014-2015 PesetaCoin Developers\n
+Copyright (c) 2014-2015 PesetaCoin Developers
 
 
 Que es PesetaCoin?
@@ -24,12 +24,12 @@ ESPECIFICACIONES
 Recompensa
 ----------------------------------
 
-    0 - 525,599: 166.386 PTC
-    525,599 - 549,999: 83.193 PTC
-    550,000 - 1,051,199: 50 PTC
+    0 - 525,599:          166.386 PTC
+    525,599 - 549,999:     83.193 PTC
+    550,000 - 1,051,199:   50 PTC
     1,051,200 - 1,576,799: 25 PTC
     1,576,800 - 2,627,999: 10 PTC
-    2,628,000 - 8,409,599: 5 PTC
+    2,628,000 - 8,409,599:  5 PTC
     8,409,600+: 0 PTC
     
 Compilación sin entorno gráfico:
