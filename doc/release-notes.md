@@ -1,23 +1,21 @@
 0.8.8 changes
 =============
 
-Replaced KWG (Kimoto Gravity Well) -> DGW (Dark Gravity Wave)
+- Replaced KWG (Kimoto Gravity Well) -> DGW (Dark Gravity Wave)
 
 0.8.7 changes
 =============
 - Protocol 70003.
-- OpenSSL Heartbleed fixed.
-- Updated to BOOST 1.5.
 - Fix difficulty retarget error.
 - New blocks rewargs:
 
-    0 - 525,599: 166.386 PTC
-    525,599 - 549,999: 83.193 PTC
-    550,000 - 1,051,199: 50 PTC
-    1,051,200 - 1,576,799: 25 PTC
-    1,576,800 - 2,627,999: 10 PTC
-    2,628,000 - 8,409,599: 5 PTC
-    8,409,600+:            0 PTC
+    - 0 - 525,599: 166.386 PTC
+    - 525,599 - 549,999: 83.193 PTC
+    - 550,000 - 1,051,199: 50 PTC
+    - 1,051,200 - 1,576,799: 25 PTC
+    - 1,576,800 - 2,627,999: 10 PTC
+    - 2,628,000 - 8,409,599: 5 PTC
+    - 8,409,600+:            0 PTC
 
 - New Translations.
 - Fixed RPC default port: 16638
